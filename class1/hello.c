@@ -1,5 +1,5 @@
 /*
- * "Hello, world" example
+ * CSC220 "Hello, world" example
  */
 
 #include<stdio.h>

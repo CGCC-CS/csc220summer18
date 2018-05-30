@@ -16,8 +16,8 @@ int main() {
     /* 
         %4d - print integer in a 4 character wide column
         \t  - tab character
-        %6.1 - print a floatnig point number with 1 cecimal (6 char wide)
-        \t - newline character
+        %6.1 - print a floating point number with 1 cecimal (6 char wide)
+        \n - newline character
     */
     printf("%4d\t%6.1f\n", fahr, celsius);
     fahr += step;
