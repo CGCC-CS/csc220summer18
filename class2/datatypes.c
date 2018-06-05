@@ -1,3 +1,4 @@
+/* Examples of C data types */
 #include<stdio.h>
 #include<limits.h>
 
@@ -27,17 +28,17 @@ int main() {
   i = -10;
   ui = -10;
   printf("2. integer: i: %d   ui: %u\n", i, ui);
-  printf("X. integer: i: %u   ui: %d\n", i, ui);  /* Careful! */
+  /* Careful! */
+  printf("X. integer: i: %u   ui: %d\n", i, ui);  
 
-
-  printf("\nData types:\n");
-  printf("         char:\tsize=%d\tmin=%d,\t\tmax=%d\n", sizeof(c), CHAR_MIN, CHAR_MAX);
-  printf("          int:\tsize=%d\tmin=%d,\tmax=%d\n", sizeof(int), INT_MIN, INT_MAX);
-  printf("        short:\tsize=%d\tmin=%d,\t\tmax=%d\n", sizeof(short), SHRT_MIN, SHRT_MAX);
-  printf("         long:\tsize=%d\tmin=%ld,\tmax=%ld\n", sizeof(long), LONG_MIN, LONG_MAX);
-  printf("unsigned long:\tsize=%d\tmax=%lu\n", sizeof(unsigned long), ULONG_MAX);
-  printf("        float:\tsize=%d\n", sizeof(float));
-  printf("       double:\tsize=%d\n", sizeof(double));
+  printf("\nData types & sizes:\n");
+  printf("         char:\tsize=%ld\tmin=%d,\t\tmax=%d\n", sizeof(c), CHAR_MIN, CHAR_MAX);
+  printf("          int:\tsize=%ld\tmin=%d,\tmax=%d\n", sizeof(int), INT_MIN, INT_MAX);
+  printf("        short:\tsize=%ld\tmin=%d,\t\tmax=%d\n", sizeof(short), SHRT_MIN, SHRT_MAX);
+  printf("         long:\tsize=%ld\tmin=%ld,\tmax=%ld\n", sizeof(long), LONG_MIN, LONG_MAX);
+  printf("unsigned long:\tsize=%ld\tmax=%lu\n", sizeof(unsigned long), ULONG_MAX);
+  printf("        float:\tsize=%ld\n", sizeof(float));
+  printf("       double:\tsize=%ld\n", sizeof(double));
 
   return 0;
 }
