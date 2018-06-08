@@ -1,30 +1,33 @@
 #include<stdio.h>
+ 
+#define COUNT 16
 
-#define COUNT 5
-
-void print_array(int ar[], int size) {
+void print_array(char ar[], int size) {
   int ii;
-  for (ii=0;ii<COUNT;ii++) 
-     printf("%d: ar[%d]=%2d\n", ii, ii, ar[ii]);
+  for(ii=0;ii<size;ii++)
+    printf("%2d: ar[%2d]=%c\n", ii, ii, ar[ii]);
+  printf("Size of ar: %lu\n", sizeof(ar)); 
 }
 
-void print_pointer(int *p, int size) {
+void print_pointer(char * p, int size) {
   int ii;
-  for (ii=0;ii<COUNT;ii++) 
-     printf("%d: *(p+%d)=%2d\n", ii, ii, *(p+ii));
+  for(ii=0;ii<size;ii++)
+    printf("%2d: *(p+%2d)=%c\n", ii, ii, *(p+ii));
+  printf("Size of p: %lu\n", sizeof(p)); 
 }
 
-int main () {
-  int array[COUNT];   /* int array */
-  int * ptr = array;  /* pointer to int */
+int main() {
+  char array[] = "ABCDEFGHIJKLMNOP"; /* int array */
+  int nums[COUNT];
+  char * ptr = "ABCDEFGHIJKLMNOP";   /* pointer to int */
   int ii;
+   
+  printf("Sizes: array: %lu,  ptr: %lu,  nums: %lu\n", sizeof(array), sizeof(ptr), sizeof(nums)); 
 
-  printf ("Sizes: array: %u, ptr: %u\n", sizeof(array), sizeof(ptr));
-
-  for (ii=0;ii<COUNT;ii++) 
-     array[ii]=ii*10;
-  for (ii=0;ii<COUNT;ii++) 
-     printf("%d: array[%d]=%2d  *(ptr+%d) = %2d\n", ii, ii, array[ii], ii, *(ptr+ii));
+  for(ii=0;ii<COUNT;ii++)
+    nums[ii]=ii;
+  for(ii=0;ii<COUNT;ii++)
+     printf("array[%2d]=%c *(ptr+%d)=%c, nums[%2d]=%2d\n", ii, array[ii], ii, *(ptr+ii), ii, nums[ii]);
 
   printf("\nprint_array(array, COUNT)\n");
   print_array(array, COUNT);
@@ -38,7 +41,7 @@ int main () {
   printf("\nprint_pointer(ptr, COUNT)\n");
   print_pointer(ptr, COUNT);
   printf("\nprint_pointer(&array[0], COUNT)\n");
-  print_pointer(&array[0], COUNT);
+  print_pointer(&array[0], COUNT); 
 
   /* array indexing */
   printf("\n\narray indexing:\n  ");
@@ -69,14 +72,13 @@ int main () {
   printf("\n");
 
   printf("Are arrays and pointers the same?\n");
-  printf("  size of arr=%u\n", sizeof(array));
-  printf("  size of ptr=%u\n", sizeof(ptr));
+  printf("  size of arr=%lu\n", sizeof(array));
+  printf("  size of ptr=%lu\n", sizeof(ptr));
 
   ptr=&ii;
   /*
-  array=&ii;  Not allowed!
+  *   array=&ii;  Not allowed!
   */
 
   return 0;
 }
-

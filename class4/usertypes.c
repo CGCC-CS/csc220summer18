@@ -1,4 +1,4 @@
-#include<stdio.h>
+nclude<stdio.h>
 #include<string.h>
 
 typedef int number;
