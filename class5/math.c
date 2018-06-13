@@ -1,4 +1,7 @@
 /* Examples of math functions 
+ *
+ * To compile:
+ *    gcc -ansi -pedantic -Wall math.c -lm
  */
 #include<stdio.h>
 #include<math.h>

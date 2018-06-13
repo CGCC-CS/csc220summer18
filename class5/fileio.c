@@ -27,7 +27,7 @@ int main() {
   int ii = 1;
 
   infile = fopen("names.txt", "r");
-  outfile = fopen("outupt.txt", "w");
+  outfile = fopen("output.txt", "w");
   while ( fgets(buffer, SIZE, infile) ) {
      chomp(buffer);
      /* Quit if we see Bigfoot */

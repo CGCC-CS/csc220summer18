@@ -1,22 +1,19 @@
 #include<stdio.h>
-
+#include<stdlib.h>
 int main(int argc, char * argv[]) {
-  int ii = 1;
   int sum = 0;
-  int num;
+  int ii=1;
 
-  if (argc >= 2) {
-     while (ii < argc) {
-       num = atoi(argv[ii]); 
-       printf("%d + ", num); 
-       sum += num;
-       ii++;
-     }
-     /* backspace 3 times (ascii 8), then print sum */
-     printf ("%c%c%c = %d\n", 8, 8, 8, sum);
+  if (argc>=2) {
+    while (ii<argc) {
+      sum += atoi(argv[ii]);
+      ii++;
+    }
+    printf("%d\n", sum);
   }
   else {
-     printf ("I need at least one");
+  fprintf(stderr, "Pass at least one number!\n");
   }
+  
   return 0;
 }
