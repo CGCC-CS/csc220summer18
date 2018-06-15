@@ -5,7 +5,7 @@ int main() {
 	int s1size=0, s2size=0;
 
 	/* 2D array - Array of 5 character arrays of length 15 */
-	char s1[5][15] = {
+	char s1[5][32] = {
 		"Arizona",
 		"Texas",
 		"New Hampshire",
@@ -29,15 +29,15 @@ int main() {
 	s1size = 0;
 	for (ii = 0; ii < 5; ii++)  {
 		printf("   %s\n", s1[ ii ]); 
-		s1size += sizeof(s1[ii]);
 	}
+	s1size = sizeof(s1);
 
 	printf("\n\ns2:\n");
-	s2size = 0;
+	s2size = sizeof(s2);
 	for (ii = 0; ii < 5; ii++) {
 		printf("   %s\n", s2[ ii ]); 
         /* Add size of pointer + length of string pointed to */
-		s2size += sizeof(s2[ii]) + strlen(s2[ii]);
+		s2size += strlen(s2[ii]) + sizeof(char);
 	}
 
 	/* Print sizes */
