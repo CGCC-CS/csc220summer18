@@ -1,4 +1,6 @@
-/* Examples of functions from ctypes.h */
+/* Examples of functions from ctypes.h 
+   This header file has some helpful functions for working with types */
+
 #include<stdio.h>
 #include<ctype.h>
 #include<string.h>

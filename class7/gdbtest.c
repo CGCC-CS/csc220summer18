@@ -1,5 +1,5 @@
 #include<stdio.h>
-/* For gdb example */
+/* For gdb example - compile with -g flag */
 
 struct thing {
   int a;

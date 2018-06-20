@@ -1,3 +1,4 @@
+/* Examples of allocating memory */
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
@@ -21,21 +22,21 @@ int main() {
     fputs("Error allocating memory for ptr.\n", stderr);
   }
 
-  strncpy(ptr, "Goodbye!", 9);
+  strncpy(ptr, "Hello!", 9);
   puts(ptr);
   free(ptr);
 
   ptr = allocate_string("This is a test.");
-  printf("ptr=%p len=%d  string=%s\n", (void *) ptr, strlen(ptr), ptr);
+  printf("ptr=%p len=%lu  string=%s\n", (void *) ptr, strlen(ptr), ptr);
   free(ptr);
   ptr = allocate_string(fence);
-  printf("ptr=%p len=%d  string=%s\n", (void *) ptr, strlen(ptr), ptr);
+  printf("ptr=%p len=%lu  string=%s\n", (void *) ptr, strlen(ptr), ptr);
   free(ptr);
   ptr = allocate_string("S");
-  printf("ptr=%p len=%d  string=%s\n", (void *) ptr, strlen(ptr), ptr);
+  printf("ptr=%p len=%lu  string=%s\n", (void *) ptr, strlen(ptr), ptr);
   free(ptr);
   ptr = allocate_string("This is a very long string to be allocating.  I need to by more RAM!");
-  printf("ptr=%p len=%d  string=%s\n", (void *) ptr, strlen(ptr), ptr);
+  printf("ptr=%p len=%lu  string=%s\n", (void *) ptr, strlen(ptr), ptr);
   free(ptr);
 
   /* malloc does not "clean" the memory */
@@ -62,7 +63,7 @@ int main() {
   }
   thing->a = 30;
   thing->b =  allocate_string("Name Here");
-  printf("[%d] Num: %d, b=%s\n", sizeof(thing), thing->a, thing->b);
+  printf("[%lu] Num: %d, b=%s\n", sizeof(thing), thing->a, thing->b);
   for(ii=0;ii<10;ii++) {
      printf("%d ", *(nums + ii));
   }
@@ -73,8 +74,12 @@ int main() {
   return 0;
 }
 
+/* Allocate a new string equivalent to str 
+ * The const modifier ensures we do not modify the input string */
 char * allocate_string(const char * str) {
+  /* Get the size of the string we pass - note this assumes a valid C string */
   int size = strlen(str) + 1;
+  /* Allocate a string big enough */
   char * ptr = malloc(size * sizeof(char));
   if (ptr == NULL) {
     fputs("Error allocating memory for ptr.\n", stderr);
@@ -82,6 +87,8 @@ char * allocate_string(const char * str) {
   else {
     strncpy(ptr, str, size);
   }
+  /* Note that while ptr is a local variable, the memory it points to is still 
+      available after we return from the function */
   return ptr;
 }
 

@@ -21,6 +21,7 @@ int main()
   return 0;
 }
 
+/* This will only display output if the DEBUG flag is set */
 void printDebug(char * str, int n, int val) {
 #ifdef DEBUG
     printf("  %s %d %d\n",str, n, val);

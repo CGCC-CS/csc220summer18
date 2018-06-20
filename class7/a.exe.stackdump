@@ -1,0 +1,6 @@
+Exception: STATUS_ACCESS_VIOLATION at eip=61160285
+eax=0062D51C ebx=0062CC9C ecx=00000000 edx=00000000 esi=00000000 edi=611C5E20
+ebp=00000001 esp=0062CB70 program=C:\Users\wadeh\Dropbox\CGCC\CSC220\CSC220\csc220summer18\class7\a.exe, pid 7232, thread main
+cs=0023 ds=002B es=002B fs=0053 gs=002B ss=002B
+Stack trace:
+Frame     Function  Args

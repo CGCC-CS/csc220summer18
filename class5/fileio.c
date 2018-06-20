@@ -4,6 +4,8 @@
 
 #define SIZE 100
 
+/* Files get read with a trailing newline, which is often not what you want 
+   Loop through until we find a newline, then replace it with a null terminator */
 void chomp(char * ptr) {
   while(*ptr != '\n') {
     ptr++;
@@ -11,6 +13,9 @@ void chomp(char * ptr) {
   *ptr='\0';
 }
 
+/* Add together the ASCII values of all characters in a string.  Note that this
+   assumes we pass a valid string.  Technically this function counts the ASCII
+   values of all bytes starting at ptr until a null terminator is reached.  */
 int add_ascii(char * ptr) {
   int sum=0;
   while(*ptr != '\0') {
@@ -21,25 +26,31 @@ int add_ascii(char * ptr) {
 }
 
 int main() {
-  FILE *infile, *outfile;
-  char buffer[SIZE];
+  FILE *infile, *outfile;   /* File pointers */
+  char inputbuffer[SIZE];
   char outstring[SIZE];
   int ii = 1;
 
+  /* Open infile for reading ("r") and outfile for writing ("w") */
   infile = fopen("names.txt", "r");
   outfile = fopen("output.txt", "w");
-  while ( fgets(buffer, SIZE, infile) ) {
-     chomp(buffer);
+
+  /* Read the input file line by line (in SIZE increments) */
+  while ( fgets(inputbuffer, SIZE, infile) ) {
+     chomp(inputbuffer);
      /* Quit if we see Bigfoot */
-     if (strncmp(buffer, "Bigfoot", SIZE) == 0) {
-       break;
+     if (strncmp(inputbuffer, "Bigfoot", SIZE) == 0) {
+       continue;
      }
-     printf("%2d: %s\n", ii, buffer);
-     sprintf(outstring, "Name=%s   ASCII total: %d\n", buffer, add_ascii(buffer));
+     printf("%2d: %s\n", ii, inputbuffer);
+
+     /* Write a formatedd output line to outstring, then write outstring to the output file */
+     sprintf(outstring, "Name=%s   ASCII total: %d\n", inputbuffer, add_ascii(inputbuffer));
      fputs(outstring, outfile);
      ii++;
   }
 
+  /* Close the files since we are done with them */
   fclose(infile);
   fclose(outfile);
 

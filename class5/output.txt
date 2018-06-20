@@ -1,0 +1,5 @@
+Name=Drew   ASCII total: 402
+Name=Sarah   ASCII total: 495
+Name=Rachel   ASCII total: 591
+Name=Bruce   ASCII total: 497
+Name=William   ASCII total: 719

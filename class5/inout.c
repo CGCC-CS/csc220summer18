@@ -1,3 +1,4 @@
+/* Examples of different ways to perform input & output */
 #include<stdio.h>
 #include<string.h>
 
@@ -20,6 +21,8 @@ int main() {
   printf("Float: %6.2f, %.1f\n", 2.0/3.0, 3.14);
  
   printf("\nsprintf & puts examples\n");
+  /* Similar to printf, but the string is put in "outStr", not written to output 
+     This is a convienent way to generate strings based on the value of a variable */
   sprintf(outStr, "Float: %6.2f, %.1f\n", 2.0/3.0, 3.14);
   puts(outStr);
   sprintf(outStr, "Don't tell me to be qui\0et!\n");  /* \0 in middle */
