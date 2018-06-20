@@ -2,7 +2,7 @@
 int
 main ()
 {
-  int a, b = 10;
+  int a, b = 5;
   for (a = 0; a < b; a++)
     {
       printf ("Hello, world! %d\n", a);
