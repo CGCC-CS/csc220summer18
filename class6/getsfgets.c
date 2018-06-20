@@ -19,7 +19,7 @@ void gets_vs_fgets() {
    printf("\nEnter a string of %d characters: ", SIZE-1);
    /* This is the right way */
    fgets(str2, SIZE, stdin);
-   /* This is dangerous! */
+   /* This is dangerous! Try to enter a long (> 20 character line here and see what happens */
    /*
    gets(str2);
    */
@@ -32,6 +32,5 @@ void gets_vs_fgets() {
 
 int main() {
    gets_vs_fgets();
-
    return 0;
 }

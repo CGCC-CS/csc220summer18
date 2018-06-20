@@ -1,8 +1,15 @@
 /* To compile:
-     gcc -DSECRETNUM=10 guess.c
-     gcc -DSECRETNUM=20 -DDEBUG guess.c
+   Override the default secret number with 15 
+     gcc -DSECRETNUM=15 guess.c
+
+   Print extra debugging output
+     gcc -DSECRETNUM=15 -DDEBUG guess.c
 */
 #include<stdio.h>
+
+#ifndef SECRETNUM
+#define SECRETNUM 10
+#endif
 
 int main() {
 
