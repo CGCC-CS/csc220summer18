@@ -15,9 +15,7 @@ int main() {
   while ( fgets(buffer, SIZE, numberlist) ) {
      input = strtok(buffer, " ");
      sum = 0;
-     ii = 0;
      while(input != NULL) {
-       ii ++;
        sum += atoi(input);
        input = strtok(NULL, " ");
      }
