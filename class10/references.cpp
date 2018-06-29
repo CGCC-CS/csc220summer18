@@ -36,7 +36,7 @@ int main() {
   display(x,y,ref);
  
   std::cout << std::endl << "Setting ref = y" << std::endl;
-  ref = &y;
+  ref = y;
   display(x,y,ref);
   
   std::cout << std::endl << "Calling myFunc(ref)" << std::endl;
