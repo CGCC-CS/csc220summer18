@@ -3,54 +3,75 @@
 
 using namespace std;
 
-int main() {
-  vector<int> v(10);     // Create vector of size 10
+int main () {
+  vector<int> v1(10);              // Create vector with capacity 10
+  vector<int> v2 = {10, 20, 30};   // Initialize vector with an array
+  vector<int> v3;
 
-  v = {34, 23, 30, 19};
+  v1 = {1, 2, 3, 4};
 
-  // Display the size of the vector
-  cout << "Vector size: " << v.size() << endl;
-  cout << "Vector capacity: " << v.capacity() << endl;
+  cout << "Vector v1 size: " << v1.size() << endl;
+  cout << "Vector v1 capacity: " << v1.capacity() << endl;
+  cout << "Vector v2 size: " << v2.size() << endl;
+  cout << "Vector v2 capacity: " << v2.capacity() << endl;
+  cout << "Vector v3 size: " << v3.size() << endl;
+  cout << "Vector v3 capacity: " << v3.capacity() << endl;
 
-  // Print vector with a for loop using array syntax (UNSAFE)
-  for (unsigned int ii=0; ii<v.size(); ii++) {
-    cout << v[ii] << " ";
+  // Unsafe!!
+  cout << endl << "Print contents using array notation" << endl;
+  //for (unsigned int ii=0; ii < v1.capacity() + 10 ;ii++) {
+  for (unsigned int ii=0; ii < v1.capacity(); ii++) {
+    cout << v1[ii] << ", ";
   }
-  cout << endl << endl;
 
-  cout << "front: " << v.front() << endl;
-  cout << " back: " << v.back() << endl;
-  cout << endl;
-
-
-  v.push_back(42);
-  v.push_back(37);
-  v.push_back(51);
-  v.push_back(63);
-  v.push_back(17);
-  v.push_back(6);
-  v.push_back(92);
-  v.push_back(77);
-
-  cout << "After push_back:" << endl;  
-  cout << "Vector size: " << v.size() << endl;
-  cout << "Vector capacity: " << v.capacity() << endl;
-
-
-  // Print vector using at()
-  for (unsigned int jj=0; jj<v.size(); jj++) {
-    cout << v.at(jj) << " ";
-  }
-  cout << endl << endl;;
-
-  v[5] = 99;
-  v.pop_back();
-  cout << "After v[5]=99 & pop_back:" << endl;  
-  // Print vector using for-each
-  for (auto& kk : v) {
-    cout << kk << " ";
+  // Safe
+  cout << endl << "Print contents using at()" << endl;
+  //for (unsigned int ii=0; ii < v1.capacity(); ii++) {
+  for (unsigned int ii=0; ii < v1.size(); ii++) {
+    cout << v1.at(ii) << ", ";
   }
   cout << endl;
 
+  //v1[4] = 5;
+  for (unsigned int ii=0; ii < v1.size(); ii++) {
+    cout << v1.at(ii) << ", ";
+  }
+  cout << "Vector v1 size: " << v1.size() << endl;
+  cout << "Vector v1 capacity: " << v1.capacity() << endl << endl;
+
+  cout << endl << "Updating v2" << endl;
+  for (unsigned int ii=v2.size(); ii < 10 ; ii++) {
+    v2.push_back(ii * 10);
+  }
+  
+  for (unsigned int ii=0; ii < v2.size() ; ii++) {
+    cout << v2.at(ii) << ", ";
+  }
+  cout << endl << "Vector v2 size: " << v2.size() << endl;
+  cout << "Vector v2 capacity: " << v2.capacity() << endl << endl;
+
+  for(unsigned int ii=0; ii<15; ii++) {
+    v3.push_back(ii*5);
+  }
+  for (unsigned int ii=0; ii < v3.size() ; ii++) {
+    cout << v3.at(ii) << ", ";
+  }
+  cout << endl << "Vector v3 size: " << v3.size() << endl;
+  cout << "Vector v3 capacity: " << v3.capacity() << endl << endl;
+  cout << "v3 front: " << v3.front() << endl;
+  cout << "v3 back: " << v3.back() << endl;
+  v3.pop_back();
+  cout << "After pop_back: " << endl;
+  for (unsigned int ii=0; ii < v3.size() ; ii++) {
+    cout << v3.at(ii) << ", ";
+  }
+
+  cout << endl << "Print with for each loop: " << endl;
+  // Use a for-each loop
+  for (auto& ii : v3) {
+    cout << ii << ", ";
+  }
+
+  cout << endl;
   return 0;
 }
