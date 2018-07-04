@@ -37,12 +37,13 @@ class MyClass : public MyBase {
        delete a;
        a = nullptr;
     }
+
     void print() {
        cout << "    Print " << b << ": " << *a << " (" << a << ")" << endl;
     }
 
   private:
-    int getCounter() {
+    static int getCounter() {
        static int counter = 1;
        return counter++;
     }
