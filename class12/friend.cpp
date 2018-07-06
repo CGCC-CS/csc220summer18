@@ -24,8 +24,23 @@ class WordList {
     public:
         WordList() {
             size=0;
-            first=nullptr;
-            last=nullptr;
+            first = nullptr;
+            last = nullptr;
+        }
+
+        ~WordList() {
+            WordNode * curr = first;
+            WordNode * ptr;
+
+            while (curr) {
+                ptr = curr;
+                curr = curr->next;
+                delete(ptr);
+            }
+            curr = nullptr;
+            ptr = nullptr;
+            first = nullptr;
+            last = nullptr;
         }
 
         void addToFront(string s);
@@ -53,8 +68,8 @@ void WordList::addToRear(string s) {
     else {
         last->next = newWordNode;
         last = newWordNode;
+        size++;
     }
-    size++;
 }
 
 ostream& operator<<(ostream& strm, const WordList& m) {
