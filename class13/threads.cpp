@@ -31,7 +31,7 @@ void count_to_ten(int tabs) {
 
 int main() {
     int ii;
-    int numThreads = 6;
+    const int numThreads = 6;
     std::thread t[numThreads];
 
     // This loop calls count_to_ten multiple times
